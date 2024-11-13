@@ -1,0 +1,41 @@
+/* Contenedor de los enlaces en la parte derecha */
+.link-container {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  /* Estilo de la lista de enlaces */
+  .link-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Estilo de cada enlace */
+  .link-list li {
+    margin-bottom: 10px;
+  }
+  
+  .link-list a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    border-radius: 20px;
+    background-color: #f3f4f6; /* Fondo gris claro */
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  /* Estilo de hover en los enlaces */
+  .link-list a:hover {
+    background-color: #c3002f; /* Color de fondo en hover */
+    color: #fff; /* Cambia el color del texto a blanco en hover */
+    transform: scale(1.05); /* Pequeño efecto de escala */
+  }
+  
+  /* Iconos para simular viñetas personalizadas */
+
+  

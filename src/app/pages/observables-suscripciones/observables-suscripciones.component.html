@@ -1,0 +1,136 @@
+<div class="observables-container">
+    <h2>Observables y Suscripciones</h2>
+
+    <!-- Sección 1: Instanciar Componentes con Datos Asíncronos (Vista Previa) -->
+    @if(!showExampleDetail){
+    <section class="example-section">
+        <h3>Datos Asíncronos</h3>
+        <button (click)="showDetail('loadData')">Entrar</button>
+    </section>
+    }
+
+    <!-- Detalle de la sección 1 (Teoría y Ejemplo) -->
+    @if(showExampleDetail === 'loadData'){
+    <section class="example-detail">
+        <h3>Teoría: Observables para Cargar Datos Asíncronos</h3>
+        <p>
+            Los observables en Angular permiten manejar flujos de datos asíncronos. Esto es especialmente útil para
+            cargar datos desde APIs u otras fuentes externas, ya que permite suscribirse y recibir los datos en el
+            momento en que están disponibles.
+        </p>
+        <p>
+            A continuación, tenemos un ejemplo que simula la carga de datos utilizando un observable.
+        </p>
+        <button (click)="loadData()">Ejecutar Ejemplo</button>
+        <button class="back-button" (click)="goBack()">Volver</button>
+
+        <div style="height: 10px;"></div>
+
+        <!-- <div style="display: flex; flex-direction: row; width: 100%;">
+            <div style="display: flex; width: 33%;">
+                <button style="background-color:yellowgreen">Componente</button>
+            </div>
+            <div style="display: flex; width: 33%;">
+                <button style="background-color:yellow; color: black">Service</button>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row;width: 100%;">
+            <div style="display: flex;width: 33%;">
+                <button style="background-color:white; color: black;">
+                    Realiza la suscripción al service
+                </button>
+            </div>
+            <div style="display: flex; width: 33%;">
+                <button style="background-color:white; color: black;">
+                    Método con salida Observable que realiza la conexión http
+                </button>
+            </div>
+        </div> -->
+
+        <div>
+            @if(data){
+            <div class="notification">{{ data }}</div>
+            }
+        </div>
+    </section>
+    }
+
+    <!-- Sección 2: Mostrar/Ocultar componentes (Vista Previa) -->
+    @if(!showExampleDetail){
+    <section class="example-section">
+        <h3>Mostrar/Ocultar Componentes Dinámicamente</h3>
+        <button (click)="showDetail('toggleNotification')">Entrar</button>
+    </section>
+    }
+
+    <!-- Detalle de la sección 2 (Teoría y Ejemplo) -->
+    @if(showExampleDetail === 'toggleNotification'){
+    <section class="example-detail">
+        <h3>Teoría: Subject o BehaviorSubject para Controlar Estado</h3>
+        <p>
+            Subject permite emitir eventos en tiempo real sin preocuparte de que los nuevos suscriptores reciban valores previos.
+        </p>
+        <p>
+            BehaviorSubject permite que los nuevos suscriptores reciban de inmediato el valor actual 
+            (como un estado compartido en un servicio Angular).
+        </p>
+        <p>
+            En este ejemplo, se usa un Subject para mostrar una notificación en este componente emitida desde un pop up.
+        </p>
+        <div style="display: flex; flex-direction: row; width: 100%;">
+            <button (click)="toggleNotification()">Mostrar Pop Up</button>
+            <div style="width: 10px;"></div>
+            <button class="back-button" (click)="goBack()">Volver</button>
+        </div>
+        @if(showNotification){
+        <div class="notification">¡Esto puede ser un componente!</div>
+        }
+    </section>
+    }
+
+    <!-- Sección 3: Ciclo de Vida y OnDestroy (Vista Previa) -->
+    @if(!showExampleDetail){
+    <section class="example-section">
+        <h3>Manejo de Suscripciones y Ciclo de Vida</h3>
+        <button (click)="showDetail('startDataStream')">Entrar</button>
+    </section>
+    }
+
+    <!-- Detalle de la sección 3 (Teoría y Ejemplo) -->
+    @if(showExampleDetail === 'startDataStream'){
+    <section class="example-detail">
+        <h3>Teoría: Manejo de Suscripciones y OnDestroy</h3>
+        <p>
+            Es importante cancelar las suscripciones de los observables para evitar fugas de memoria en Angular. Esto se
+            logra usualmente usando `takeUntil` junto con un `Subject` o manejadores de ciclo de vida como `OnDestroy`. También podemos 
+            usar un objeto de tipo `Subscription` y añadir a este objeto todos los eventos que necesitemos. En el `OnDestroy` debemos
+            liberar este objeto al igual que hacemos con el `Subject`.
+        </p>
+        <p>
+            A continuación, un ejemplo que muestra un flujo de datos periódico que se detiene al destruir el componente o al 
+            pararlo manualmente.
+        </p>
+        <div style="display: flex; flex-direction: row; width: 100%;">
+            <button (click)="startDataStream()">Iniciar Flujo</button>
+            <div style="width: 10px;"></div>
+            <button (click)="stopDataStream()">Detener Flujo</button>
+            <div style="width: 10px;"></div>
+            <button class="back-button" (click)="goBack()">Volver</button>
+        </div>
+        @if(streamData){
+        <div class="notification">Flujo de datos: {{ streamData }}</div>
+        }
+    </section>
+    }
+
+    <div class="download-section">
+        <h3>Descargar Documento</h3>
+        <p>Puedes descargar un documento en PDF con más información detallada.</p>
+        <a class="download-button" download="formacion_1.pdf" target="_blank" href="./../../../assets/formación_I.pdf">Descargar PDF</a>
+    </div>
+</div>
+
+
+@if(showPopUp){
+    <app-pop-up (ready)="onPopupReady()" (close)="closePopup()" />
+}

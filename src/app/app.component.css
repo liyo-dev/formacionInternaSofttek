@@ -1,64 +1,137 @@
 /* Centra el contenido principal */
 .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  /* Estilo para el logo */
-  .logo {
-    width: 100px;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilo para el título */
-  header h1 {
-    font-size: 2.5rem;
-    margin: 0;
-    color: #c3002f;
-  }
-  
-  /* Subtítulo */
-  header p {
-    font-size: 1.25rem;
-    color: #555;
-    margin-top: 5px;
-  }
-  
-  /* Estilo para el contenido */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  height: 100vh; /* Ajusta la altura al 100% de la pantalla */
+  justify-content: space-between; /* Espacia los elementos verticalmente */
+  box-sizing: border-box;
+}
+
+/* Estilo para el logo */
+.logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para el título */
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #c3002f;
+}
+
+/* Subtítulo */
+header p {
+  font-size: 1.25rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Estilo para el contenido */
+.content {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+  box-sizing: border-box;
+  overflow: hidden; /* Evita el scroll */
+}
+
+/* Estilo para los enlaces */
+.links {
+  margin-top: 30px;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links li {
+  margin: 10px 0;
+}
+
+.links a {
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.links a:hover {
+  background-color: #c3002f;
+  color: white;
+}
+
+/* Botón flotante de descarga PDF */
+.floating-download-button {
+  display: inline-block;
+  background-color: #ff4081;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 25px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.floating-download-button:hover {
+  background-color: #d81b60;
+}
+
+/* Botón flotante de inicio en la esquina inferior izquierda */
+.floating-start-button {
+  display: inline-block;
+  background-color: #ff4081;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 25px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.floating-start-button:hover {
+  background-color: #d81b60;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 650px) {
   .content {
-    /* max-width: 800px; */
-    width: 100%;
-    margin-top: 20px;
+      flex-direction: column;
+      align-items: center;
+      overflow: auto; /* Permitir scroll en pantallas pequeñas */
   }
   
-  /* Estilo para los enlaces */
-  .links {
-    margin-top: 30px;
+  header h1 {
+      font-size: 2rem; /* Reducir el tamaño del título en pantallas pequeñas */
   }
-  
-  .links ul {
-    list-style: none;
-    padding: 0;
+
+  header p {
+      font-size: 1rem; /* Ajuste del subtítulo */
   }
-  
-  .links li {
-    margin: 10px 0;
+
+  .floating-download-button,
+  .floating-start-button {
+      font-size: 0.9em; /* Ajustar el tamaño del texto en botones */
+      padding: 8px 16px; /* Ajustar padding para pantallas pequeñas */
   }
-  
-  .links a {
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 10px 20px;
-    border-radius: 20px;
-    color: #333;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .links a:hover {
-    background-color: #c3002f;
-    color: white;
-  }
-  
+}

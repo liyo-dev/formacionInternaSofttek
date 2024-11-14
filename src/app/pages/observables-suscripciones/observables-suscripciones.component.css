@@ -1,75 +1,82 @@
-.observables-container {
-    padding: 20px;
-  }
-  
-  h2 {
-    color: #c3002f;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-  }
-  
-  .example-section {
-    margin-bottom: 30px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-  }
-  
-  .example-section h3 {
-    margin-top: 0;
-    font-size: 1.4rem;
-    color: #333;
-  }
-  
-  button {
-    padding: 8px 15px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007acc;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #005fa3;
-  }
-  
-  .notification {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #e0ffe0;
-    border: 1px solid #b2f2b2;
-    border-radius: 5px;
-    color: #333;
-  }
-  
-  .example-detail {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-left: 5px solid #c3002f;
-    border-radius: 5px;
-  }
-  
-  .back-button {
-    margin-top: 15px;
-    margin-left: 15px;
-    padding: 8px 15px;
-    color: #333;
-    background-color: #e0e0e0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .back-button:hover {
-    background-color: #d0d0d0;
-  }
-  
+/* Contenedor principal */
 
-  /* Estilos para la sección de descarga */
+
+/* Título principal */
+h2 {
+  color: #ff4081;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Sección de ejemplo */
+.example-section {
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.example-section h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+/* Botón general */
+button {
+  padding: 8px 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007acc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+/* Notificación */
+.notification {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e0ffe0;
+  border: 1px solid #b2f2b2;
+  border-radius: 5px;
+  color: #333;
+}
+
+/* Detalles de los ejemplos */
+.example-detail {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-left: 5px solid #c3002f;
+  border-radius: 5px;
+}
+
+/* Botón de volver */
+.back-button {
+  margin-top: 15px;
+  margin-left: 15px;
+  padding: 8px 15px;
+  color: #333;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #d0d0d0;
+}
+
+/* Sección de descarga */
 .download-section {
   text-align: center;
   margin-top: 20px;
@@ -79,21 +86,19 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Título de la sección de descarga */
 .download-section h3 {
   font-size: 1.4em;
   color: #333;
   margin-bottom: 10px;
 }
 
-/* Texto descriptivo */
 .download-section p {
   font-size: 1em;
   color: #666;
   margin-bottom: 20px;
 }
 
-/* Estilos para el botón de descarga */
+/* Botón de descarga */
 .download-button {
   background-color: #007bff;
   color: white;
@@ -107,4 +112,92 @@
 
 .download-button:hover {
   background-color: #0056b3;
+}
+
+.puzzle-container {
+  display: grid;
+  grid-template-columns: repeat(2, 100px); /* Ajusta el número de columnas según tus necesidades */
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.puzzle-piece {
+  width: 100px;
+  height: 100px;
+  background-color: #007acc;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none; /* Evita la selección del texto */
+}
+
+.puzzle-piece:active {
+  transform: scale(0.95); /* Efecto visual al arrastrar la pieza */
+}
+
+
+/* Media queries para hacer responsive */
+
+/* Ajustes para pantallas medianas */
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .example-section,
+  .example-detail {
+    padding: 10px;
+  }
+
+  .example-section h3,
+  .example-detail h3 {
+    font-size: 1.2rem;
+  }
+
+  button, .back-button, .download-button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .notification {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media screen and (max-width: 480px) {
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .example-section h3,
+  .example-detail h3 {
+    font-size: 1.1rem;
+  }
+
+  .example-section,
+  .example-detail {
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+
+  button, .back-button, .download-button {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .notification {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  /* Ajustar ancho de las secciones */
+  .example-section, .example-detail, .download-section {
+    max-width: 100%;
+  }
 }

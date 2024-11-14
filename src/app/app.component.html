@@ -11,19 +11,15 @@
     --gray-700: oklch(36.98% 0.014 302.71);
     --gray-400: oklch(70.9% 0.015 304.04);
 
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+    --red-to-pink-to-purple-vertical-gradient: linear-gradient(180deg,
+        var(--orange-red) 0%,
+        var(--vivid-pink) 50%,
+        var(--electric-violet) 100%);
 
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(90deg,
+        var(--orange-red) 0%,
+        var(--vivid-pink) 50%,
+        var(--electric-violet) 100%);
 
     --pill-accent: var(--bright-blue);
 
@@ -124,9 +120,11 @@
   .pill-group .pill:nth-child(6n + 1) {
     --pill-accent: var(--bright-blue);
   }
+
   .pill-group .pill:nth-child(6n + 2) {
     --pill-accent: var(--french-violet);
   }
+
   .pill-group .pill:nth-child(6n + 3),
   .pill-group .pill:nth-child(6n + 4),
   .pill-group .pill:nth-child(6n + 5) {
@@ -171,7 +169,7 @@
 <main class="main">
   <div class="content">
     @if(isLoading){
-      <app-loading />
+    <app-loading />
     }
 
     <router-outlet />
@@ -180,8 +178,17 @@
     <div class="divider" role="separator" aria-label="Divider"></div>
 
     @if(showMenu){
-     <app-menu />
+    <app-menu />
     }
-    
+
+
+    @if(router.url === '/home'){
+      <a class="floating-download-button" download="formacion_1.pdf" target="_blank"
+        href="./../../../assets/formación_I.pdf">Descargar PDF</a>
+    }
+
+      @if(router.url !== '/home'){
+        <a href="/home" class="floating-start-button">Inicio</a>
+      }
   </div>
 </main>

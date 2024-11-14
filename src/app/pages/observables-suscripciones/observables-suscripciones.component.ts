@@ -3,14 +3,15 @@ import { Subject, Subscription, interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DataService } from '../../data.service';
 import { PopUpComponent } from '../../components/pop-up/pop-up.component';
-import { saveAs } from 'file-saver';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-observables-suscripciones',
   templateUrl: './observables-suscripciones.component.html',
   styleUrls: ['./observables-suscripciones.component.css'],
   standalone: true,
-  imports: [PopUpComponent],
+  imports: [PopUpComponent, CommonModule],
 })
 export class ObservablesSuscripcionesComponent implements OnDestroy {
   data: string | null = null;
@@ -25,9 +26,8 @@ export class ObservablesSuscripcionesComponent implements OnDestroy {
 
   @ViewChild(PopUpComponent) popUpComponent!: PopUpComponent;
 
-  constructor(private dataService: DataService) {}  
-  
-  
+  constructor(private dataService: DataService) { }
+
   // Mostrar sección de detalle
   showDetail(example: string) {
     this.showExampleDetail = example;
@@ -55,28 +55,13 @@ export class ObservablesSuscripcionesComponent implements OnDestroy {
   // Ejemplo 2: Mostrar/Ocultar notificación
   toggleNotification() {
     this.showPopUp = true;
-   
-    //dejo esto fuera para que falle
-    // this.popUpSub = this.popUpComponent.onSendNotification$.subscribe(() => {
-    //   this.showNotification = !this.showNotification;
-    // });
-
-    //posible solucion dentro de un delay
-    // inconveniente que hay que añadirle un tiempo
-    setTimeout(() => {
-
-    }, 100);
-
-    //mandar un output desde el componente para saber cuando se ha instanciado
   }
 
+  // Método que se ejecuta cuando el componente PopUp está listo
   onPopupReady() {
-    //aunque debemos añadir el delay para esperar a que se termine de instanciar
-    //no hay que añadir tiempo
-    setTimeout(() => {
-      this.popUpSub = this.popUpComponent.onSendNotification$.subscribe(() => {
-        this.showNotification = !this.showNotification;
-      });
+    // Asegura que `popUpComponent` esté listo antes de suscribirse
+    this.popUpSub = this.popUpComponent.onSendNotification$.subscribe(() => {
+      this.showNotification = !this.showNotification;
     });
   }
 

@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { MenuComponent } from "./menu/menu.component";
-import { Subscription } from 'rxjs';
-import { DataService } from './data.service';
-import { LoadingComponent } from "./loading/loading.component";
+import { Component, AfterViewInit, OnDestroy } from "@angular/core";
+import { Router, RouterOutlet } from "@angular/router";
+import { Subscription } from "rxjs";
+import { LoadingComponent } from "./components/loading/loading.component";
+import { MenuComponent } from "./components/menu/menu.component";
+import { DataService } from "./data.service";
+
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   // Manejo de suscripciones con Subscription
   private subs: Subscription = new Subscription();
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, public router: Router) {}
 
   ngAfterViewInit(): void {
     this.subs.add(

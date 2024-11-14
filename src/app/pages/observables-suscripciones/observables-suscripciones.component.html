@@ -53,6 +53,10 @@
             }
         </div>
     </section>
+
+
+
+
     }
 
     <!-- Sección 2: Mostrar/Ocultar componentes (Vista Previa) -->
@@ -68,10 +72,11 @@
     <section class="example-detail">
         <h3>Teoría: Subject o BehaviorSubject para Controlar Estado</h3>
         <p>
-            Subject permite emitir eventos en tiempo real sin preocuparte de que los nuevos suscriptores reciban valores previos.
+            Subject permite emitir eventos en tiempo real sin preocuparte de que los nuevos suscriptores reciban valores
+            previos.
         </p>
         <p>
-            BehaviorSubject permite que los nuevos suscriptores reciban de inmediato el valor actual 
+            BehaviorSubject permite que los nuevos suscriptores reciban de inmediato el valor actual
             (como un estado compartido en un servicio Angular).
         </p>
         <p>
@@ -102,12 +107,15 @@
         <h3>Teoría: Manejo de Suscripciones y OnDestroy</h3>
         <p>
             Es importante cancelar las suscripciones de los observables para evitar fugas de memoria en Angular. Esto se
-            logra usualmente usando `takeUntil` junto con un `Subject` o manejadores de ciclo de vida como `OnDestroy`. También podemos 
-            usar un objeto de tipo `Subscription` y añadir a este objeto todos los eventos que necesitemos. En el `OnDestroy` debemos
+            logra usualmente usando `takeUntil` junto con un `Subject` o manejadores de ciclo de vida como `OnDestroy`.
+            También podemos
+            usar un objeto de tipo `Subscription` y añadir a este objeto todos los eventos que necesitemos. En el
+            `OnDestroy` debemos
             liberar este objeto al igual que hacemos con el `Subject`.
         </p>
         <p>
-            A continuación, un ejemplo que muestra un flujo de datos periódico que se detiene al destruir el componente o al 
+            A continuación, un ejemplo que muestra un flujo de datos periódico que se detiene al destruir el componente
+            o al
             pararlo manualmente.
         </p>
         <div style="display: flex; flex-direction: row; width: 100%;">
@@ -123,15 +131,9 @@
     </section>
     }
 
-    <!-- Descarga de documento -->
-    <div class="download-section">
-        <h3>Descargar Documento</h3>
-        <p>Puedes descargar un documento en PDF con más información detallada.</p>
-        <a class="download-button" download="formacion_1.pdf" target="_blank" href="./../../../assets/formación_I.pdf">Descargar PDF</a>
-    </div>
 </div>
 
 
 @if(showPopUp){
-    <app-pop-up (ready)="onPopupReady()" (close)="closePopup()" />
+<app-pop-up (ready)="onPopupReady()" (close)="closePopup()" />
 }

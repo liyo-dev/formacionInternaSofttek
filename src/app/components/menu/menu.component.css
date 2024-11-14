@@ -36,6 +36,11 @@
     transform: scale(1.05); /* Pequeño efecto de escala */
   }
   
-  /* Iconos para simular viñetas personalizadas */
+  .link-list a.disabled {
+    color: #999;
+    pointer-events: none; /* Desactiva el clic */
+    cursor: default; /* Cambia el cursor a "no permitido" */
+    background-color: #e0e0e0;
+  }
 
   

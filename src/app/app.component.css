@@ -113,6 +113,18 @@ header p {
   background-color: #d81b60;
 }
 
+.logo {
+  transition: all 0.5s ease; /* Animación de movimiento */
+}
+
+.logo.fixed {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  transform: scale(0.8); /* Escalar para adaptarlo a la esquina */
+  transition: all 0.5s ease; /* Ajusta la duración de la animación */
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 650px) {
   .content {

@@ -168,6 +168,10 @@
 
 <main class="main">
   <div class="content">
+    @if(router.url !== '/home'){
+    <img src="assets/angular_logo.webp" class="logo" [ngClass]="{'fixed': logoFixed}" alt="Logo de Angular" />
+    }
+
     @if(isLoading){
     <app-loading />
     }
@@ -183,12 +187,12 @@
 
 
     @if(router.url === '/home'){
-      <a class="floating-download-button" download="formacion_1.pdf" target="_blank"
-        href="./../../../assets/formación_I.pdf">Descargar PDF</a>
+    <a class="floating-download-button" download="formacion_1.pdf" target="_blank"
+      href="./../../../assets/formación_I.pdf">Descargar PDF</a>
     }
 
-      @if(router.url !== '/home'){
-        <a href="/home" class="floating-start-button">Inicio</a>
-      }
+    @if(router.url !== '/home'){
+    <a href="/home" class="floating-start-button">Inicio</a>
+    }
   </div>
 </main>

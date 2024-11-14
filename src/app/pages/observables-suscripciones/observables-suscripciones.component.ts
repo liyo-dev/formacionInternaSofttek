@@ -60,8 +60,11 @@ export class ObservablesSuscripcionesComponent implements OnDestroy {
   // Método que se ejecuta cuando el componente PopUp está listo
   onPopupReady() {
     // Asegura que `popUpComponent` esté listo antes de suscribirse
-    this.popUpSub = this.popUpComponent.onSendNotification$.subscribe(() => {
-      this.showNotification = !this.showNotification;
+    setTimeout(() => {
+      this.popUpSub = this.popUpComponent.onSendNotification$.subscribe(() => {
+        this.showNotification = !this.showNotification;
+      });
+      
     });
   }
 

@@ -1,0 +1,21 @@
+<div class="wrapper-container">
+    <h2>Componente Padre: Ciclos de Vida</h2>
+    <p>
+      Interactúa con el valor inicial para observar cómo el componente hijo
+      responde a los cambios.
+    </p>
+
+    <div class="input-container">
+      <label for="parent-input">Valor desde el Padre:</label>
+      <input
+        id="parent-input"
+        [(ngModel)]="parentInputValue"
+        placeholder="Cambia el valor desde el padre"
+      />
+    </div>
+
+    <app-ciclos-de-vida
+      [inputValue]="parentInputValue"
+    ></app-ciclos-de-vida>
+
+  </div>

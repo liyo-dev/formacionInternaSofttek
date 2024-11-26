@@ -1,10 +1,9 @@
 <div class="link-container">
-  <ul class="link-list">
-    <!-- <li><a href="/home">Inicio</a></li> -->
-    <li><a href="/observables-suscripciones">Formación 1: Observables y Suscripciones</a></li>
-    <li><a href="/ciclos-vida">Formación 2: Ciclos de vida</a></li>
-    <li><a href="#" class="disabled">Formación 3: Patrones de diseño</a></li>
-    <li><a href="#" class="disabled">Formación 4: Interfaces</a></li>
-    <li><a href="#" class="disabled">Formación 5: Angular moderno</a></li>
-  </ul>
+  <div class="link-list">
+    <div class="link-item" (click)="observables()">Formación 1: Observables y Suscripciones</div>
+    <div class="link-item" (click)="ciclos()">Formación 2: Ciclos de vida</div>
+    <div class="link-item disabled">Formación 3: Patrones de diseño</div>
+    <div class="link-item disabled">Formación 4: Interfaces</div>
+    <div class="link-item disabled">Formación 5: Angular moderno</div>
+  </div>
 </div>

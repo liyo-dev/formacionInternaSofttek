@@ -100,6 +100,7 @@
             <div style="width: 10px;"></div>
             <button class="back-button" (click)="goBack()">Volver</button>
         </div>
+        <div>{{ waitDataTxt }}</div>
         @if(streamData){
         <div class="notification">Flujo de datos: {{ streamData }}</div>
         }

@@ -173,7 +173,7 @@
     }
 
     @if(isLoading){
-    <app-loading />
+      <app-loading />
     }
 
     <router-outlet />
@@ -192,7 +192,7 @@
     }
 
     @if(router.url !== '/home'){
-    <a href="/home" class="floating-start-button">Inicio</a>
+    <a (click)="showMenuEvent()" href="/home" class="floating-start-button">Inicio</a>
     }
   </div>
 </main>

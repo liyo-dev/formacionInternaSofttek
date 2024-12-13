@@ -1,0 +1,111 @@
+<div class="lifecycle-container">
+    <h2>Ciclos de Vida en Angular</h2>
+
+    <!-- Sección 1: ngOnChanges (Vista Previa) -->
+    @if(!showExampleDetail){
+    <section class="example-section">
+        <h3>ngOnChanges</h3>
+        <button (click)="showDetail('onChanges')">Entrar</button>
+    </section>
+    }
+
+    <!-- Detalle de la sección 1 (Teoría y Ejemplo) -->
+    @if(showExampleDetail === 'onChanges'){
+    <section class="example-detail">
+        <h3>Teoría: ngOnChanges</h3>
+        <p>
+            Este hook se ejecuta cuando cambian las propiedades de entrada del componente.
+            Es ideal para reaccionar a cambios en datos provenientes de componentes padres.
+        </p>
+        <input [(ngModel)]="inputValue" placeholder="Cambia este valor" />
+        <p class="notification">Último cambio detectado: {{ lastChange }}</p>
+        <button class="back-button" (click)="goBack()">Volver</button>
+    </section>
+    }
+
+    <!-- Sección 2: ngDoCheck (Vista Previa) -->
+    @if(!showExampleDetail){
+    <section class="example-section">
+        <h3>ngDoCheck</h3>
+        <button (click)="showDetail('doCheck')">Entrar</button>
+    </section>
+    }
+
+    <!-- Detalle de la sección 2 (Teoría y Ejemplo) -->
+    @if(showExampleDetail === 'doCheck'){
+    <section class="example-detail">
+        <h3>Teoría: ngDoCheck</h3>
+        <p>
+            Este hook permite detectar y actuar sobre cambios que Angular no detecta automáticamente.
+            Es útil para personalizar la detección de cambios.
+        </p>
+        <input [(ngModel)]="inputValue" placeholder="Cambia este valor" />
+        <p class="notification">Cambio detectado manualmente: {{ manualCheck }}</p>
+        <button class="back-button" (click)="goBack()">Volver</button>
+    </section>
+    }
+
+    <!-- Sección 3: ngAfterContentInit (Vista Previa) -->
+    @if(!showExampleDetail){
+    <section class="example-section">
+        <h3>ngAfterContentInit</h3>
+        <button (click)="showDetail('afterContentInit')">Entrar</button>
+    </section>
+    }
+
+    <!-- Detalle de la sección 3 (Teoría y Ejemplo) -->
+    @if(showExampleDetail === 'afterContentInit'){
+    <section class="example-detail">
+        <h3>Teoría: ngAfterContentInit</h3>
+        <p>
+            Este hook se ejecuta una vez después de que Angular proyecta el contenido en la vista del componente
+            (<code>&lt;ng-content&gt;</code>).
+        </p>
+        <div class="notification" #projectedContent>{{ contentInitialized }}</div>
+        <button class="back-button" (click)="goBack()">Volver</button>
+    </section>
+    }
+
+    <!-- Sección 4: ngAfterViewInit (Vista Previa) -->
+    @if(!showExampleDetail){
+    <section class="example-section">
+        <h3>ngAfterViewInit</h3>
+        <button (click)="showDetail('afterViewInit')">Entrar</button>
+    </section>
+    }
+
+    <!-- Detalle de la sección 4 (Teoría y Ejemplo) -->
+    @if(showExampleDetail === 'afterViewInit'){
+    <section class="example-detail">
+        <h3>Teoría: ngAfterViewInit</h3>
+        <p>
+            Este hook se ejecuta después de que Angular ha inicializado las vistas del componente y sus vistas hijas.
+        </p>
+        <div class="notification" #exampleElement>{{ viewInitialized }}</div>
+        <!-- <p>Vista inicializada: {{ viewInitialized }}</p> -->
+        <button class="back-button" (click)="goBack()">Volver</button>
+    </section>
+    }
+
+    <!-- Sección 5: ngOnDestroy (Vista Previa) -->
+    @if(!showExampleDetail){
+    <section class="example-section">
+        <h3>ngOnDestroy</h3>
+        <button (click)="showDetail('onDestroy')">Entrar</button>
+    </section>
+    }
+
+    <!-- Detalle de la sección 5 (Teoría y Ejemplo) -->
+    @if(showExampleDetail === 'onDestroy'){
+    <section class="example-detail">
+        <h3>Teoría: ngOnDestroy</h3>
+        <p>
+            Este hook se ejecuta justo antes de que Angular destruya el componente. Es útil para limpiar recursos
+            como suscripciones o temporizadores.
+        </p>
+        <p>Abre la consola del navegador para ver el mensaje de destrucción.</p>
+        <button class="back-button" (click)="goBack()">Volver</button>
+        <button class="back-button" (click)="navigateHome()">Home</button>
+    </section>
+    }
+</div>

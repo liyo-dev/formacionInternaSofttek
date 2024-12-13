@@ -1,25 +1,26 @@
 import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { Subject, Subscription, interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DataService } from '../../data.service';
+import { DataService } from '../../service/data.service';
 import { PopUpComponent } from '../../components/pop-up/pop-up.component';
 import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-observables-suscripciones',
-  templateUrl: './observables-suscripciones.component.html',
-  styleUrls: ['./observables-suscripciones.component.css'],
+  templateUrl: './observables-suscripciones.page.html',
+  styleUrls: ['./observables-suscripciones.page.css'],
   standalone: true,
   imports: [PopUpComponent, CommonModule],
 })
 export class ObservablesSuscripcionesComponent implements OnDestroy {
   data: string | null = null;
-  showNotification = false;
+  showNotification: boolean = false;
   streamData: number | null = null;
   showExampleDetail: string | null = null;
   isLoading: boolean = false;
-  showPopUp = false;
+  showPopUp: boolean = false;
+  waitDataTxt: string = '';
 
   private destroy$ = new Subject<void>();
   private popUpSub: Subscription | undefined;
@@ -31,7 +32,6 @@ export class ObservablesSuscripcionesComponent implements OnDestroy {
   // Mostrar sección de detalle
   showDetail(example: string) {
     this.showExampleDetail = example;
-    this.dataService.onShowExampleDetail.next(false);
   }
 
   // Regresar a la vista previa
@@ -41,7 +41,6 @@ export class ObservablesSuscripcionesComponent implements OnDestroy {
     this.showNotification = false;
     this.streamData = null;
     this.destroy$.next();
-    this.dataService.onShowExampleDetail.next(true);
   }
 
   // Ejemplo 1: Cargar datos asíncronos
@@ -76,10 +75,12 @@ export class ObservablesSuscripcionesComponent implements OnDestroy {
 
   // Ejemplo 3: Iniciar y detener flujo de datos
   startDataStream() {
+    this.waitDataTxt = "Recibiendo datos...";
     interval(1000)
       .pipe(takeUntil(this.destroy$))
       .subscribe((value) => {
         this.streamData = value;
+        this.waitDataTxt = "";
       });
   }
 
@@ -88,8 +89,8 @@ export class ObservablesSuscripcionesComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
+    this.popUpSub?.unsubscribe();
     this.destroy$.next();
     this.destroy$.complete();
-    this.popUpSub?.unsubscribe();
   }
 }

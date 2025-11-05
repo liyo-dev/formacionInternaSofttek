@@ -1,3 +1,12 @@
+Buenas
+
+abro hilo de correo para reportar los avances que vamos viendo del microfront de pagos judiciales.
+
+Hemos partido de microfront de pagos-ini (IBM). 
+
+De momento hemos ajustado la versión de angular asi como el ruteo y la seguridad de Darwin. Hemos conseguido levantar el micro y hacer navegación de dos componentes. También hemos podido integrarlo en nuestro portal:
+
+
 # FormacionInterna1
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
